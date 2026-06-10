@@ -1,0 +1,6 @@
+services:
+  bankcore-api:
+    build: .
+    container_name: bankcore-lite-api
+    ports:
+      - "8080:8080"
