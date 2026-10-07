@@ -200,22 +200,21 @@ Ejecutar tests:
 mvn test
 ```
 
-## CI/CD básico
+## Integración continua
 
-Incluye un workflow de GitHub Actions en:
-
-```text
-.github/workflows/ci.yml
-```
-
-Este workflow ejecuta:
+El workflow `.github/workflows/ci.yml` compila el proyecto,
+ejecuta las pruebas y genera el JAR con Java 17:
 
 ```bash
-mvn test
-mvn package -DskipTests
+mvn --batch-mode --no-transfer-progress clean verify
 ```
 
-## Cómo presentarlo en el CV
+Se ejecuta en los cambios enviados a main y en las pull requests
+dirigidas a esa rama. También permite ejecución manual desde Actions.
+
+No realiza despliegues automáticos.
+
+## 
 
 **BankCore Lite API — Backend Java Spring Boot**  
 API REST bancaria desarrollada con Java 17 y Spring Boot para gestionar clientes, cuentas, movimientos y transferencias. Incluye validaciones de negocio, control de saldo, bloqueo de cuentas, reglas antifraude básicas, documentación Swagger, pruebas con JUnit, Docker y pipeline básico con GitHub Actions.
