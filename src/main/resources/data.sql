@@ -5,3 +5,7 @@ INSERT INTO clientes (id, nombre, apellidos, dni, email, telefono, fecha_alta, a
 INSERT INTO cuentas (id, iban, cliente_id, saldo, tipo_cuenta, estado, fecha_creacion) VALUES
 (1, 'ES7620770024003102575766', 1, 2500.00, 'CORRIENTE', 'ACTIVA', CURRENT_TIMESTAMP),
 (2, 'ES1200491500051234567892', 2, 8000.00, 'AHORRO', 'ACTIVA', CURRENT_TIMESTAMP);
+
+-- Continuar los identificadores automáticos después de los datos iniciales.
+ALTER TABLE clientes ALTER COLUMN id RESTART WITH 3;
+ALTER TABLE cuentas ALTER COLUMN id RESTART WITH 3;
